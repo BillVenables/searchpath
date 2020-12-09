@@ -1,5 +1,5 @@
 #' @importFrom pingr is_online
-#' @importFrom utils install.packages
+#' @importFrom utils install.packages setRepositories
 NULL
 
 
@@ -26,7 +26,9 @@ use_packages <- function (..., list = NULL, quietly = TRUE, show_data = TRUE) {
   dots <- match.call(expand.dots = FALSE)$...
   pkgs <- c(lapply(dots, deparse), as.list(list))
   if(is.null(getOption("repos"))) {
-    options(repos = c(CRAN = "https://cloud.r-project.org"))
+    # options(repos = c(CRAN = "https://cloud.r-project.org",
+    #                   BioCsoft = "https://bioconductor.org/packages/3.11/bioc"))
+    utils::setRepositories(graphics = FALSE, ind = 1:2)
     on.exit(options(repos = NULL))
   }
   req <- if(show_data) requireData else if(quietly) {

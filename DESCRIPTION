@@ -1,14 +1,14 @@
 Package: searchpath
 Type: Package
 Title: Add Packages to the Search Path
-Version: 0.1.0
+Version: 0.1.1
 Author: Bill Venables
 Maintainer: Bill Venables <Bill.Venables@gmail.com>
 Depends: R (>= 3.5.0)
 Imports: pingr, utils
 Description: Facilitate the addition of multiple packages
   to the search path, installing any which are necessary on
-  the fly.  Obviates the need for multiple library() calls.
+  the fly.  Removes the need for multiple library() calls.
 License: GPL-2
 Encoding: UTF-8
 LazyData: true
