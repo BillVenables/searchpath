@@ -9,17 +9,17 @@
 #' @param quietly as for base::require()
 #' @param character.only as for base::require()
 #' @param warn.conflicts as for base::require()
-#' @param reallyQuietly logical: suppress startup messages?
+#' @param really_quietly logical: suppress startup messages?
 #' @param ... extra arguments, currently ignored.
 #'
 #' @return logical: as for base::require()
 #' @export
 #'
 #' @examples
-#' requireData(lazyData)
-requireData <- function(package = stop("you must specify a package"),
-                        lib.loc = NULL, quietly = TRUE, character.only = FALSE,
-                        warn.conflicts = TRUE, reallyQuietly = quietly, ...) {
+#' require_data(lazyData)
+require_data <- function(package = stop("you must specify a package"),
+                         lib.loc = NULL, quietly = TRUE, character.only = FALSE,
+                         warn.conflicts = TRUE, really_quietly = quietly, ...) {
   if(!character.only) {
     pkg <- substitute(package)
     if(!is.character(pkg)) pkg <- deparse(pkg)
@@ -32,7 +32,7 @@ requireData <- function(package = stop("you must specify a package"),
   s0 <- search()
   oldWarn <- options(warn = -1)
   on.exit(options(oldWarn))
-  OK <- if(reallyQuietly) {
+  OK <- if(really_quietly) {
     suppressMessages(require(package = pkg, lib.loc = lib.loc,
                                            quietly = TRUE, warn.conflicts = FALSE,
                                            character.only = TRUE))

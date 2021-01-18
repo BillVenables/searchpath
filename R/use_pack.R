@@ -1,5 +1,6 @@
 #' @importFrom pingr is_online
 #' @importFrom utils install.packages setRepositories
+#' @export is_online
 NULL
 
 
