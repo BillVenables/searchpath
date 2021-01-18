@@ -32,7 +32,7 @@ use_packages <- function (..., list = NULL, quietly = TRUE, show_data = TRUE) {
     utils::setRepositories(graphics = FALSE, ind = 1:2)
     on.exit(options(repos = NULL))
   }
-  req <- if(show_data) requireData else if(quietly) {
+  req <- if(show_data) require_data else if(quietly) {
     function(...) {
       suppressPackageStartupMessages(require(...))
     }
